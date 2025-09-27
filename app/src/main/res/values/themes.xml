@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!-- tema para o app todo -->
+    <style name="Theme.MiniPokedex" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/white</item>
+    </style>
+
+    <!-- tema para a tela de abertura (SplashScreen), herda do tema base, possui backgorund, logo e transição p proxima tela -->
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen" >
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo_pokeball_static</item>
+        <item name="postSplashScreenTheme">@style/Theme.MiniPokedex</item>
+    </style>
+</resources>
