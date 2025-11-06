@@ -1,25 +1,30 @@
 package br.com.android.minipokedex
 
+import android.content.Intent
+import android.graphics.drawable.AnimatedImageDrawable
+import android.os.Build
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.os.Handler
+import android.os.Looper
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.ViewCompat
-import androidx.core.view.ViewCompat.*
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+    private val SPLASH_DURATION = 2500L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         installSplashScreen()
 
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        Handler(Looper.getMainLooper()).postDelayed({
+            val intent = Intent(this, PokemonListActivity::class.java)
+            startActivity(intent)
+
+            finish()
+
+        }, SPLASH_DURATION)
     }
 }
